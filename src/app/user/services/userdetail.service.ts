@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpResponse, HttpErrorResponse} from '@angular/common/http';
-import {catchError} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import {Observable, throwError} from 'rxjs';
-import {UserModel} from '../listing/model/user.info';
+import {UserModel, UserModelResponse} from '../listing/model/user.info';
 @Injectable({
   providedIn: 'root'
 })
@@ -29,9 +29,13 @@ export class UserdetailService {
       'Something bad happened; please try again later.');
   }
 
-  getUsers(): Observable<HttpResponse<UserModel>> {
-    return this.http.get<HttpResponse<UserModel>>(this.configUrl).pipe(
+  getUsers(): Observable<Array<UserModel>> {
+    return this.http.get<UserModelResponse>(this.configUrl).pipe(
+      map((res: any) => {
+        return res.data;
+      }),
       catchError(this.handleError)
-    );
+    )
+      ;
   }
 }

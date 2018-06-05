@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserModel} from './model/user.info';
 import {UserdetailService} from '../services/userdetail.service';
-import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-listing',
@@ -18,7 +17,7 @@ export class ListingComponent implements OnInit {
   ngOnInit() {
     this.userDetail.getUsers().subscribe((response: any) => {
       console.log(response);
-      this.users = response.data;
+      this.users = response;
     }, (error: any) => {
       console.log('error', error);
     }, () => {
