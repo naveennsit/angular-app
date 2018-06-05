@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserModel} from './model/user.info';
+import {UserdetailService} from '../services/userdetail.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-listing',
@@ -8,31 +10,20 @@ import {UserModel} from './model/user.info';
 })
 export class ListingComponent implements OnInit {
 
-  users: UserModel[] = [
-    {
-      'id': 1,
-      'first_name': 'George',
-      'last_name': 'Bluth',
-      'avatar': 'https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg'
-    },
-    {
-      'id': 2,
-      'first_name': 'Janet',
-      'last_name': 'Weaver',
-      'avatar': 'https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg'
-    },
-    {
-      'id': 3,
-      'first_name': 'Emma',
-      'last_name': 'Wong',
-      'avatar': 'https://s3.amazonaws.com/uifaces/faces/twitter/olegpogodaev/128.jpg'
-    }
-  ];
+  users: UserModel[];
 
-  constructor() {
+  constructor(private userDetail: UserdetailService) {
   }
 
   ngOnInit() {
+    this.userDetail.getUsers().subscribe((response: any) => {
+      console.log(response);
+      this.users = response.data;
+    }, (error: any) => {
+      console.log('error', error);
+    }, () => {
+      console.log('complete');
+    });
   }
 
 }

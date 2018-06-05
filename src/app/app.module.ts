@@ -5,6 +5,7 @@ import {AppComponent} from './app.component';
 import {Routes, RouterModule} from '@angular/router';
 
 import {UserModule} from './user/user.module';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/users', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     UserModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
 
   ],
