@@ -21,9 +21,6 @@ describe('UserdetailService', () => {
   }));
 
   describe('service getConfig function', () => {
-    xit('should call http get funcion', () => {
-
-    })
 
     it('subscribe the data ', (done) => {
       const USERS = {
@@ -55,9 +52,9 @@ describe('UserdetailService', () => {
 
       service.getUsers()
         .subscribe(
-          (res: UserModel) => {
-            expect(res).toBe(USERS);
-            expect(res.length).toEqual(2);
+          (res: UserModel[]) => {
+             expect(res).toBe(USERS.data);
+            expect(res.length).toEqual(3);
             done();
           }
         );
