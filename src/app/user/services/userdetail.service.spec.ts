@@ -6,7 +6,7 @@ import {UserModel} from '../listing/model/user.info';
 
 describe('UserdetailService', () => {
   let service, httpMock;
-  const URL = 'https://reqres.in/api/users'
+  const URL = 'https://reqres.in/api/users';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -48,7 +48,7 @@ describe('UserdetailService', () => {
             'avatar': 'https://s3.amazonaws.com/uifaces/faces/twitter/olegpogodaev/128.jpg'
           }
         ]
-      }
+      };
 
       service.getUsers()
         .subscribe(

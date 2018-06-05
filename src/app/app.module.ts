@@ -7,7 +7,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {UserModule} from './user/user.module';
 import {HttpClientModule} from '@angular/common/http';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '',   redirectTo: '/users', pathMatch: 'full' },
 
 ];
