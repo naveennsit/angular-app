@@ -42,7 +42,7 @@ describe('test routing', () => {
       console.log('==================');
       console.log(location.path());
       // fixture.whenStable().then(() => {
-      expect(location.path()).toBe('/users');
+      expect(location.path()).toBe('/signup');
       // })
     }));
   });

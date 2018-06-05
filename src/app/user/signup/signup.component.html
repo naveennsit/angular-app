@@ -3,12 +3,30 @@
     <label for="email">Email</label>
     <input type="text" class="form-control" id="email" formControlName="email">
   </div>
+  <span class="help-block" *ngIf="(signUpForm.get('email').touched || signUpForm.get('email').dirty) && signUpForm.get('email').errors">
+      <span *ngIf="signUpForm.get('email').errors.required">
+          Please enter your email address.
+      </span>
+		<span *ngIf="signUpForm.get('email').errors.pattern">
+          Please enter a valid email address.
+      </span>
+		</span>
 
   <div class="form-group">
     <label for="password">Password</label>
     <input type="password" class="form-control" id="password" formControlName="password">
   </div>
 
-  <button type="submit" class="btn btn-success" [disabled]="!signUpForm.valid">Submit</button>
+  <span class="help-block" *ngIf="(signUpForm.get('password').touched || signUpForm.get('password').dirty) && signUpForm.get('password').errors">
+      <span *ngIf="signUpForm.get('password').errors.required">
+          Please enter your password.
+      </span>
+		<span *ngIf="signUpForm.get('password').errors.minlength">
+          Please enter minimum 4 digit password.
+      </span>
+		</span>
+
+
+  <button type="submit" class="btn btn-success" [disabled]="!signUpForm.valid" (click)="onSubmit(signUpForm.value)">Submit</button>
 
 </form>
