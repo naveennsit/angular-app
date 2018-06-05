@@ -1,7 +1,11 @@
-<ul>
-  <li *ngFor="let user of users">
-    <span>{{user.first_name}}</span>
-    <span>{{user.last_name}}</span>
-    <img [src]= "user.avatar">
+<ul class="user-list">
+  <li *ngFor="let user of users" class="user-list__item">
+    <div class="user-list_userdetail">
+      <span>{{user.first_name}}</span>
+      <span>{{user.last_name}}</span>
+    </div>
+    <div class="user-list__item__imgdiv">
+      <img [src]="user.avatar" class="user-list__item__img">
+    </div>
   </li>
 </ul>

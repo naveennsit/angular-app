@@ -4,7 +4,7 @@ import {UserModel} from './model/user.info';
 @Component({
   selector: 'app-listing',
   templateUrl: './listing.component.html',
-  styleUrls: ['./listing.component.css']
+  styleUrls: ['./listing.component.scss']
 })
 export class ListingComponent implements OnInit {
 
