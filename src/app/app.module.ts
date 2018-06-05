@@ -8,7 +8,7 @@ import {UserModule} from './user/user.module';
 import {HttpClientModule} from '@angular/common/http';
 
 export const routes: Routes = [
-  { path: '',   redirectTo: '/users', pathMatch: 'full' },
+  { path: '',   redirectTo: '/signup', pathMatch: 'full' },
 
 ];
 @NgModule({
