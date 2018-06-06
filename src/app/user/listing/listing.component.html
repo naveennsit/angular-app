@@ -1,5 +1,5 @@
 <ul class="user-list">
-  <li *ngFor="let user of users" class="user-list__item">
+  <li *ngFor="let user of users | name" class="user-list__item">
     <div class="user-list_userdetail">
       <span>{{user.first_name}}</span>
       <span>{{user.last_name}}</span>
