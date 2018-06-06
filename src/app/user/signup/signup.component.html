@@ -1,4 +1,4 @@
-<form novalidate [formGroup]="signUpForm">
+<form novalidate [formGroup]="signUpForm" (ngSubmit)="onSubmit(signUpForm.value)">
   <div class="form-group">
     <label for="email">Email</label>
     <input type="text" class="form-control" id="email" formControlName="email">
@@ -27,6 +27,6 @@
 		</span>
 
 
-  <button type="submit" class="btn btn-success" [disabled]="!signUpForm.valid" (click)="onSubmit(signUpForm.value)">Submit</button>
+  <button type="submit" class="btn btn-success" [disabled]="!signUpForm.valid">Submit</button>
 
 </form>

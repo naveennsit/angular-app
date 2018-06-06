@@ -25,13 +25,12 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(val) {
-    console.log(val);
     this.signupService.signUpHandler(val).subscribe((res: SignUpModel) => {
       if (res.token !== '') {
         this.router.navigate(['/users']);
       }
     }, (err) => {
-      console.log(err);
+     // console.log(err);
     });
   }
 
