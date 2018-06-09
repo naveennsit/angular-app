@@ -16,7 +16,6 @@ export class ListingComponent implements OnInit {
 
   ngOnInit() {
     this.userDetail.getUsers().subscribe((response: any) => {
-      console.log(response);
       this.users = response;
     }, (error: any) => {
       console.log('error', error);
